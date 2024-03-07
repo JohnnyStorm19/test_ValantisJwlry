@@ -1,4 +1,6 @@
 # Тестовое задание для ValantisJewelry
+[![test_ValantisJwlr](https://github.com/JohnnyStorm19/test_ValantisJwlry/actions/workflows/web.yml/badge.svg)](https://github.com/JohnnyStorm19/test_ValantisJwlry/actions/workflows/web.yml)
+## [Запустить проект](https://johnnystorm19.github.io/test_ValantisJwlry/)
 ### [Техническое задание](https://github.com/ValantisJewelry/TestTaskValantis)
 Реализация задания:
 - сборщик -  [Vite](https://vitejs.dev/)
