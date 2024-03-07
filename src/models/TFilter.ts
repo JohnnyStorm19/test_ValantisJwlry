@@ -1,0 +1,1 @@
+export type TFilter = "brand" | "product" | "price" | "none"

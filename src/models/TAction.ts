@@ -1,0 +1,1 @@
+export type TAction = 'get_ids' | 'get_items' | 'get_fields' | 'filter'
