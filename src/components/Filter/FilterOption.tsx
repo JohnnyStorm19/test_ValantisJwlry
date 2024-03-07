@@ -1,13 +1,5 @@
-import { useState } from "react";
 import ArrowUp from "../UI/ArrowUp";
 import ArrowDown from "../UI/ArrowDown";
-
-// type TFilterOptionProps = {
-//   opt: {
-//     field: string;
-//     name: string;
-//   };
-// };
 
 type TFilterOptionProps = {
     opt: {
@@ -19,18 +11,7 @@ type TFilterOptionProps = {
     openHandler: (field: string) => void;
     changeHandler: (e:React.ChangeEvent<HTMLInputElement>, field: string) => void;
   };
-
 const FilterOption = ({ opt, openHandler, changeHandler }: TFilterOptionProps) => {
-//   const [isOpen, setIsOpen] = useState(false);
-
-//   const arrowHandler = () => {
-//     setIsOpen(!isOpen);
-//   };
-
-// const arrowHandler = () => {
-//     setIsOpen(!isOpen);
-//   };
-
   return (
     <div className="flex flex-col">
       <div className="flex justify-between"
