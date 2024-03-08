@@ -57,11 +57,6 @@ const App = () => {
     }
   }, [products, filteredProducts, currentFilter]);
 
-  useEffect(() => {
-    console.log("products: ", products);
-    console.log("unique products: ", uniqueProducts);
-  }, [products, uniqueProducts]);
-
   return (
     <div className="p-5">
       <Header />
