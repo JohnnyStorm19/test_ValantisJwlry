@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import { TProduct } from "./models/TProduct";
 import { useFetchProducts } from "./hooks/useFetchProducts";
 import ProductCardsList from "./components/ProductCardsList";
