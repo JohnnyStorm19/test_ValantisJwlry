@@ -4,17 +4,16 @@ import { getRequestConfig } from "../services/api/requestApi";
 import { useAppDispatch, useAppSelector } from "../store/hooks";
 import { addFilteredProducts, clearFilteredProducts, disableFetch } from "../store/filterSlice";
 import { TError } from "../models/TError";
+import { TFilter } from "../models/TFilter";
 
 
-const getInputValue = (value: string | number) => {
-  let currentValue;
-  if (typeof value === "number") {
-    currentValue = Number(Number(value).toFixed(1));
+const getInputValue = (currentFilter: TFilter, value: string | number) => {
+  if (currentFilter ===  "price") {
+    return Number(Number(value).toFixed(1));
+  } 
+  if ((currentFilter === "brand" || currentFilter === "product") && typeof value === "string") {
+    return value
   }
-  if (typeof value === "string") {
-    currentValue = value.trim();
-  }
-  return currentValue;
 }
 
 
@@ -39,8 +38,7 @@ export const useFilterProducts = () => {
       postData: {
         action: "filter",
         params: {
-          // [activeSelect]: activeSelect === "price" ? formattedNumber : selectedValue.trim() as string
-          [activeSelect]: getInputValue(selectedValue)
+          [activeSelect]: getInputValue(activeSelect, selectedValue)
         },
       },
     });
