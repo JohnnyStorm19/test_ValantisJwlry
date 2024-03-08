@@ -36,7 +36,7 @@ const SelectFilter = () => {
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     dispatch(
-    changeInputFilterValue({currentInputValue: e.currentTarget.value.trim()})
+    changeInputFilterValue({currentInputValue: e.currentTarget.value})
     );
   };
 

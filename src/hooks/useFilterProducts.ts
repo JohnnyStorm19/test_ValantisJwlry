@@ -6,6 +6,18 @@ import { addFilteredProducts, clearFilteredProducts, disableFetch } from "../sto
 import { TError } from "../models/TError";
 
 
+const getInputValue = (value: string | number) => {
+  let currentValue;
+  if (typeof value === "number") {
+    currentValue = Number(Number(value).toFixed(1));
+  }
+  if (typeof value === "string") {
+    currentValue = value.trim();
+  }
+  return currentValue;
+}
+
+
 export const useFilterProducts = () => {
   const dispatch = useAppDispatch();
   const activeSelect = useAppSelector((state) => state.filter.currentFilter);
@@ -13,8 +25,6 @@ export const useFilterProducts = () => {
     (state) => state.filter.currentInputValue
   );
   const goFetch = useAppSelector((state) => state.filter.goFetch);
-
-  const formattedNumber = activeSelect === "price" && Number(Number(selectedValue).toFixed(1));
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<TError>({
@@ -29,7 +39,8 @@ export const useFilterProducts = () => {
       postData: {
         action: "filter",
         params: {
-          [activeSelect]: activeSelect === "price" ? formattedNumber : selectedValue
+          // [activeSelect]: activeSelect === "price" ? formattedNumber : selectedValue.trim() as string
+          [activeSelect]: getInputValue(selectedValue)
         },
       },
     });
@@ -49,7 +60,7 @@ export const useFilterProducts = () => {
       }
       console.log("error obj: ", error);
     }
-  }, [activeSelect, selectedValue, formattedNumber]);
+  }, [activeSelect, selectedValue]);
 
   const fetchProductsByIds = useCallback(
     async (arrayOfIds: string[]) => {
